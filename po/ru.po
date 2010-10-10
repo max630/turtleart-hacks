@@ -3,351 +3,1439 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-17 10:53-0500\n"
+"POT-Creation-Date: 2010-10-11 01:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <walter@sugarlabs.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 1.0.1\n"
 
-#: 
-msgid "Turtle Art"
-msgstr "Черепашка"
+#: ../TurtleArt/taconstants.py:265 ../TurtleArt/taconstants.py:398
+msgid "turtle"
+msgstr "черепашка"
 
-#:
-msgid "Project"
-msgstr "Проект"
-
-#:
-msgid "Samples"
-msgstr "Примеры"
-
-
-#: tasetup.py:46 tasetup.py:49 tasetup.py:50 tasetup.py:51 tasetup.py:52
-#: tasetup.py:53 tasetup.py:54
-msgid "title"
-msgstr ""
-
-#: tasetup.py:66
-msgid "text"
-msgstr ""
-
-#:
-msgid "Save as"
-msgstr ""
-
-#: TurtleArtActivity.py:173 TurtleArtActivity.py:262
-#: TurtleArtActivity.py:293
-msgid "hide palette"
-msgstr ""
-
-#: TurtleArtActivity.py:181 TurtleArtActivity.py:286
-msgid "hide blocks"
-msgstr ""
-
-#: TurtleArtActivity.py:194
-msgid "run"
-msgstr ""
-
-#: TurtleArtActivity.py:202
-msgid "step"
-msgstr ""
-
-#: TurtleArtActivity.py:210
-msgid "stop turtle"
-msgstr ""
-
-#: TurtleArtActivity.py:249
-msgid "save as HTML"
-msgstr ""
-
-#: TurtleArtActivity.py
-msgid "save Logo"
-msgstr ""
-
-#: TurtleArtActivity.py
-msgid "load my block"
-msgstr ""
-
-#: TurtleArtActivity.py:259 TurtleArtActivity.py:267
-#: TurtleArtActivity.py:290 TurtleArtActivity.py:299
-msgid "show palette"
-msgstr ""
-
-#: TurtleArtActivity.py:283 TurtleArtActivity.py:297
-msgid "show blocks"
-msgstr ""
-
-#:
-msgid "Flow"
-msgstr "Передвижение"
-
-#:
-msgid "forever"
-msgstr "всегда"
-
-#:
-msgid "if"
-msgstr "если"
-
-#:
-msgid "then"
-msgstr "тогда"
-
-#:
-msgid "else"
-msgstr "иначе"
-
-#:
-msgid "repeat"
-msgstr "повтор"
-
-#:
-msgid "stop stack"
-msgstr "конец цепи"
-
-#:
-msgid "wait"
-msgstr "ждать"
-
-#:
-msgid "My Blocks"
-msgstr "Мои блоки"
-
-#:
-msgid "start"
-msgstr "начать"
-
-#:
-msgid "box"
-msgstr "ящик"
-#:
-msgid "box 1"
-msgstr "ящик 1"
-
-#:
-msgid "box 2"
-msgstr "ящик 2"
-
-#:
-msgid "stack"
-msgstr "стопка"
-
-#:
-msgid "stack 1"
-msgstr "стопка 1"
-
-#:
-msgid "stack 2"
-msgstr "стопка 2"
-
-#:
-msgid "store in box 1"
-msgstr "сохранить в ящике 1"
-
-#:
-msgid "store in box 2"
-msgstr "сохранить в ящике 2"
-
-#:
-msgid "name"
-msgstr ""
-
-#:
-msgid "Numbers"
-msgstr "Числа"
-
-#:
-msgid "number"
-msgstr "число"
-
-#:
+#: ../TurtleArt/taconstants.py:266
 msgid "and"
 msgstr "и"
 
-#:
-msgid "or"
-msgstr "или"
-
-#:
-msgid "not"
-msgstr "не"
-
-#:
-msgid "random"
-msgstr "случайно"
-
-#:
-msgid "min"
-msgstr "минимум"
-
-#:
-msgid "max"
-msgstr "максимум"
-
-#:
-msgid "mod"
-msgstr "модуль"
-
-#:
-msgid "print"
-msgstr "печатать"
-
-#:
-msgid "Pen"
-msgstr "Перо"
-
-#:
-msgid "color"
-msgstr "цвет"
-
-#:
-msgid "shade"
-msgstr "затенение"
-
-#:
-msgid "fill screen"
-msgstr "заполнить"
-
-#:
-msgid "pen up"
-msgstr "поднять перо"
-
-#:
-msgid "pen down"
-msgstr "опустить перо"
-
-#:
-msgid "set pen size"
-msgstr "изменить размер пера"
-
-#:
-msgid "pen size"
-msgstr "размер пера"
-
-#:
-msgid "set shade"
-msgstr "затенение"
-
-#:
-msgid "set color"
-msgstr "изменить цвет"
-
-#:
-msgid "set text color"
-msgstr "изменить цвет текста"
-
-#:
-msgid "Blocks"
-msgstr "Блоки"
-
-#:
-msgid "Turtle"
-msgstr "Черепашка"
-
-#:
-msgid "forward"
-msgstr "вперёд"
-
-#:
-msgid "back"
-msgstr "назад"
-
-#:
-msgid "right"
-msgstr "вправо"
-
-#:
-msgid "left"
-msgstr "влево"
-
-#:
+#: ../TurtleArt/taconstants.py:267
 msgid "arc"
 msgstr "дуга"
 
-#:
+#: ../TurtleArt/taconstants.py:267
 msgid "angle"
 msgstr "угол"
 
-#:
+#: ../TurtleArt/taconstants.py:267
 msgid "radius"
 msgstr "радиус"
 
-#:
+#: ../TurtleArt/taconstants.py:269
+msgid "back"
+msgstr "назад"
+
+#: ../TurtleArt/taconstants.py:270
+msgid "black"
+msgstr "чёрный"
+
+#: ../TurtleArt/taconstants.py:271
+msgid "blue"
+msgstr "синий"
+
+#: ../TurtleArt/taconstants.py:272
+msgid "bottom"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:273
+msgid "picture bottom"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:274 ../TurtleArt/taconstants.py:383
+msgid "box"
+msgstr "ящик"
+
+#: ../TurtleArt/taconstants.py:275
+msgid "box 1"
+msgstr "ящик 1"
+
+#: ../TurtleArt/taconstants.py:276
+msgid "box 2"
+msgstr "ящик 2"
+
+#: ../TurtleArt/taconstants.py:277
+msgid "Cartesian"
+msgstr "прямоугольная сетка"
+
+#: ../TurtleArt/taconstants.py:278
+msgid " clean "
+msgstr " очистить "
+
+#: ../TurtleArt/taconstants.py:279
+msgid "empty heap"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:280 ../TurtleArt/taconstants.py:287
+#: ../TurtleArt/talogo.py:756
+msgid "color"
+msgstr "цвет"
+
+#: ../TurtleArt/taconstants.py:281 ../TurtleArt/taconstants.py:565
+msgid "comment"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:282
+msgid "cyan"
+msgstr "голубой"
+
+#: ../TurtleArt/taconstants.py:285
+msgid "empty trash"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:287
+msgid "fill screen"
+msgstr "заполнить"
+
+#: ../TurtleArt/taconstants.py:287 ../TurtleArt/taconstants.py:371
+#: ../TurtleArt/talogo.py:757
+msgid "shade"
+msgstr "затенение"
+
+#: ../TurtleArt/taconstants.py:288
+msgid "forever"
+msgstr "всегда"
+
+#: ../TurtleArt/taconstants.py:289
+msgid "forward"
+msgstr "вперёд"
+
+#: ../TurtleArt/taconstants.py:290
+msgid "full screen"
+msgstr "заполнить"
+
+#: ../TurtleArt/taconstants.py:291
+msgid "gray"
+msgstr "серый"
+
+#: ../TurtleArt/taconstants.py:293
+msgid "green"
+msgstr "зелёный"
+
+#: ../TurtleArt/taconstants.py:294 ../TurtleArt/taconstants.py:376
+#: ../TurtleArt/taconstants.py:570 ../TurtleArt/taconstants.py:601
+msgid "action"
+msgstr "команда"
+
+#: ../TurtleArt/taconstants.py:295 ../TurtleArt/taconstants.py:377
+msgid "action 1"
+msgstr "команда 1"
+
+#: ../TurtleArt/taconstants.py:296 ../TurtleArt/taconstants.py:378
+msgid "action 2"
+msgstr "команда 2"
+
+#: ../TurtleArt/taconstants.py:297 ../TurtleArt/talogo.py:748
+#: ../TurtleArt/tawindow.py:2171 ../TurtleArt/tawindow.py:2175
+#: ../TurtleArtActivity.py:835
 msgid "heading"
 msgstr "направление"
 
-#:
-msgid "set heading"
-msgstr "изменить направление"
+#: ../TurtleArt/taconstants.py:298
+msgid "height"
+msgstr "высота"
 
-#:
-msgid "clean"
-msgstr "очистить"
-
-#:
-msgid "set xy"
-msgstr "изменить координаты"
-
-#:
-msgid "x"
-msgstr "x"
-
-#:
-msgid "y"
-msgstr "y"
-
-#:
-msgid "xcor"
-msgstr "x текущ."
-
-#:
-msgid "ycor"
-msgstr "y текущ."
-
-#:
-msgid "Sensors"
+#: ../TurtleArt/taconstants.py:299
+msgid "hide blocks"
 msgstr ""
 
-#:
-msgid "volume"
+#: ../TurtleArt/taconstants.py:302 ../TurtleArt/taconstants.py:303
+msgid "if"
+msgstr "если"
+
+#: ../TurtleArt/taconstants.py:302
+msgid "then"
+msgstr "тогда"
+
+#: ../TurtleArt/taconstants.py:303
+#, fuzzy
+msgid "then else"
+msgstr "тогда иначе"
+
+#: ../TurtleArt/taconstants.py:304 ../TurtleArt/taconstants.py:372
+msgid "show"
 msgstr ""
 
-#:
+#: ../TurtleArt/taconstants.py:306
+msgid "query keyboard"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:307
+msgid "keyboard"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:308 ../TurtleArt/taconstants.py:309
+msgid "left"
+msgstr "влево"
+
+#: ../TurtleArt/taconstants.py:310
+msgid "picture left"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:314 ../TurtleArt/taconstants.py:315
+#: ../TurtleArt/taconstants.py:316 ../TurtleArt/taconstants.py:317
+msgid "Python"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:318 ../TurtleArt/taconstants.py:400
+#: ../TurtleArt/taconstants.py:401 ../TurtleArt/taconstants.py:402
+msgid " "
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:319
+msgid "not"
+msgstr "не"
+
+#: ../TurtleArt/taconstants.py:321
+msgid "orange"
+msgstr "оранжевый"
+
+#: ../TurtleArt/taconstants.py:322
+msgid "or"
+msgstr "или"
+
+#: ../TurtleArt/taconstants.py:323 ../TurtleArt/talogo.py:752
+msgid "pen down"
+msgstr "опустить перо"
+
+#: ../TurtleArt/taconstants.py:324 ../TurtleArt/talogo.py:758
+msgid "pen size"
+msgstr "размер пера"
+
+#: ../TurtleArt/taconstants.py:325 ../TurtleArt/talogo.py:754
+msgid "pen up"
+msgstr "поднять перо"
+
+#: ../TurtleArt/taconstants.py:332
 msgid "pitch"
 msgstr ""
 
-#:
-msgid "voltage"
+#: ../TurtleArt/taconstants.py:334
+msgid "polar"
 msgstr ""
 
-#:
+#: ../TurtleArt/taconstants.py:335
+msgid "pop"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:336
+msgid "show heap"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:337
+msgid "print"
+msgstr "печатать"
+
+#: ../TurtleArt/taconstants.py:339
+msgid "purple"
+msgstr "пурпурный"
+
+#: ../TurtleArt/taconstants.py:340
+msgid "push"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:341
+msgid "random"
+msgstr "случайно"
+
+#: ../TurtleArt/taconstants.py:341
+msgid "min"
+msgstr "минимум"
+
+#: ../TurtleArt/taconstants.py:341
+msgid "max"
+msgstr "максимум"
+
+#: ../TurtleArt/taconstants.py:342
+msgid "read pixel"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:343
+msgid "red"
+msgstr "красный"
+
+#: ../TurtleArt/taconstants.py:344
+msgid "mod"
+msgstr "модуль"
+
+#: ../TurtleArt/taconstants.py:345
+msgid "repeat"
+msgstr "повтор"
+
+#: ../TurtleArt/taconstants.py:346
 msgid "resistance"
 msgstr ""
 
-#:
-msgid "Templates"
+#: ../TurtleArt/taconstants.py:347
+msgid "restore last"
 msgstr ""
 
-#:
-msgid "Keyboard"
+#: ../TurtleArt/taconstants.py:348
+msgid "restore all"
 msgstr ""
 
-#:
-msgid "read key"
+#: ../TurtleArt/taconstants.py:349 ../TurtleArt/taconstants.py:350
+msgid "right"
+msgstr "вправо"
+
+#: ../TurtleArt/taconstants.py:351
+msgid "picture right"
 msgstr ""
 
-#:
-msgid "sound"
+#: ../TurtleArt/taconstants.py:352
+msgid "save picture"
 msgstr ""
 
-#:
-msgid "hres"
+#: ../TurtleArt/taconstants.py:353
+msgid "save SVG"
 msgstr ""
 
-#:
-msgid "vres"
+#: ../TurtleArt/taconstants.py:355 ../TurtleArt/tautils.py:464
+msgid "click to open"
 msgstr ""
 
+#: ../TurtleArt/taconstants.py:356 ../TurtleArt/taconstants.py:358
+msgid "top of stack"
+msgstr "верх стопки"
+
+#: ../TurtleArt/taconstants.py:360 ../TurtleArt/talogo.py:749
+msgid "scale"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:361
+msgid "turtle sees"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:362
+msgid "set color"
+msgstr "изменить цвет"
+
+#: ../TurtleArt/taconstants.py:363
+msgid "set gray"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:364
+msgid "set heading"
+msgstr "изменить направление"
+
+#: ../TurtleArt/taconstants.py:365
+msgid "set pen size"
+msgstr "изменить размер пера"
+
+#: ../TurtleArt/taconstants.py:366
+msgid "set scale"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:367
+msgid "set shade"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:368
+msgid "set text color"
+msgstr "изменить цвет текста"
+
+#: ../TurtleArt/taconstants.py:369
+msgid "set text size"
+msgstr "изменить размер пера"
+
+#: ../TurtleArt/taconstants.py:370
+msgid "set xy"
+msgstr "изменить координаты"
+
+#: ../TurtleArt/taconstants.py:370
+msgid "x"
+msgstr "x"
+
+#: ../TurtleArt/taconstants.py:370
+msgid "y"
+msgstr "y"
+
+#: ../TurtleArt/taconstants.py:373
+msgid "show blocks"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:374
+msgid "show aligned"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:379
+msgid "start"
+msgstr "начать"
+
+#: ../TurtleArt/taconstants.py:380
+msgid "start fill"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:381
+msgid "end fill"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:382
+msgid "stop action"
+msgstr "конец команды"
+
+#: ../TurtleArt/taconstants.py:383
+msgid "store in"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:383
+msgid "value"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:384
+msgid "store in box 1"
+msgstr "сохранить в ящике 1"
+
+#: ../TurtleArt/taconstants.py:385
+msgid "store in box 2"
+msgstr "сохранить в ящике 2"
+
+#: ../TurtleArt/taconstants.py:386 ../TurtleArt/taconstants.py:599
+#: ../TurtleArt/taconstants.py:600 ../TurtleArt/taconstants.py:605
+#: ../TurtleArt/taconstants.py:616
+msgid "text"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:393 ../TurtleArt/taconstants.py:712
+msgid "text size"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:394
+msgid "title x"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:395
+msgid "title y"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:396
+msgid "top"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:397
+msgid "picture top"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:399
+msgid "until"
+msgstr "повторять пока не"
+
+#: ../TurtleArt/taconstants.py:403
+msgid "voltage"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:404
+msgid "volume"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:406
+msgid "wait"
+msgstr "ждать"
+
+#: ../TurtleArt/taconstants.py:407 ../TurtleArt/taconstants.py:408
+msgid "while"
+msgstr "повторять пока"
+
+#: ../TurtleArt/taconstants.py:409
+msgid "white"
+msgstr "белый"
+
+#: ../TurtleArt/taconstants.py:410
+msgid "width"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:411
+msgid "write"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:412 ../TurtleArt/talogo.py:747
+#: ../TurtleArt/tawindow.py:2171 ../TurtleArt/tawindow.py:2175
+#: ../TurtleArtActivity.py:833
+msgid "xcor"
+msgstr "x текущ."
+
+#: ../TurtleArt/taconstants.py:413 ../TurtleArt/talogo.py:748
+#: ../TurtleArt/tawindow.py:2171 ../TurtleArt/tawindow.py:2175
+#: ../TurtleArtActivity.py:834
+msgid "ycor"
+msgstr "y текущ."
+
+#: ../TurtleArt/taconstants.py:414
+msgid "yellow"
+msgstr "жёлтый"
+
+#: ../TurtleArt/taconstants.py:564 ../TurtleArt/taconstants.py:604
+msgid "my box"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:586 ../TurtleArt/taconstants.py:587
+msgid "label"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:588 ../TurtleArt/taconstants.py:589
+msgid "picture name"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:606 ../TurtleArt/taconstants.py:607
+#: ../TurtleArt/taconstants.py:608 ../TurtleArt/taconstants.py:609
+#: ../TurtleArt/taconstants.py:610 ../TurtleArt/taconstants.py:611
+#: ../TurtleArt/taconstants.py:930 ../TurtleArt/taconstants.py:948
+#: ../TurtleArt/taconstants.py:965 ../TurtleArt/taconstants.py:997
+#: ../TurtleArt/taconstants.py:1029 ../TurtleArt/taconstants.py:1061
+msgid "Title"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:690
+msgid "audio"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:691
+msgid "divide"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:692
+msgid "equal"
+msgstr "равно"
+
+#: ../TurtleArt/taconstants.py:693
+msgid "greater than"
+msgstr "больше"
+
+#: ../TurtleArt/taconstants.py:694
+msgid "horizontal space"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:695
+msgid "identity"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:696
+msgid "if then"
+msgstr "если тогда"
+
+#: ../TurtleArt/taconstants.py:697
+msgid "if then else"
+msgstr "если тогда иначе"
+
+#: ../TurtleArt/taconstants.py:698
+msgid "journal"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:699
+msgid "less than"
+msgstr "меньше"
+
+#: ../TurtleArt/taconstants.py:700
+msgid "minus"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:701
+msgid "Python code"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:702
+msgid "number"
+msgstr "число"
+
+#: ../TurtleArt/taconstants.py:703
+msgid "plus"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:704
+msgid "multiply"
+msgstr "умножить"
+
+#: ../TurtleArt/taconstants.py:705
+msgid "square root"
+msgstr "корень"
+
+#: ../TurtleArt/taconstants.py:706 ../TurtleArt/taconstants.py:707
+msgid "presentation 1x1"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:708
+msgid "presentation 1x2"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:709
+msgid "presentation 2x1"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:710
+msgid "presentation 2x2"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:711
+msgid "presentation bulleted list"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:713
+msgid "vertical space"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:719
+msgid "chooses which turtle to command"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:720
+msgid "logical AND operator"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:721
+msgid "moves turtle along an arc"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:722
+msgid "Sugar Journal audio object"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:723
+msgid "moves turtle backward"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:724
+msgid "Palette of variable blocks"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:725
+msgid "ycor of bottom of screen"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:726
+msgid "Variable 1 (numeric value)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:727
+msgid "Variable 2 (numeric value)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:728
+msgid "named variable (numeric value)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:729
+msgid "displays Cartesian coordinates"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:730
+msgid "clears the screen and reset the turtle"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:731
+msgid "emptys FILO (first-in-last-out heap)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:732
+msgid "holds current pen color (can be used in place of a number block)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:733
+msgid "Palette of pen colors"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:734
+msgid "places a comment in your code"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:735 ../TurtleArtActivity.py:908
+#: ../turtleart.py:257
+msgid "Debug"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:736
+msgid "Sugar Journal description field"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:737
+msgid ""
+"divides top numeric input (numerator) by bottom numeric input (denominator)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:738
+msgid "permanently deletes items in trash"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:739 ../TurtleArtActivity.py:901
+#: ../turtleart.py:254
+msgid "Clean"
+msgstr "очистить"
+
+#: ../TurtleArt/taconstants.py:740
+msgid "logical equal-to operator"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:741
+msgid "Palette of extra options"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:742
+msgid "fills the background with (color, shade)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:743
+msgid "Palette of flow operators"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:744
+msgid "loops forever"
+msgstr "повторяет бесконечно"
+
+#: ../TurtleArt/taconstants.py:745
+msgid "moves turtle forward"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:746
+msgid "hides the Sugar toolbars"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:747
+msgid "holds current gray level (can be used in place of a number block)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:748
+msgid "logical greater-than operator"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:749
+msgid "top of Action 1 stack"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:750
+msgid "top of Action 2 stack"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:751
+msgid "top of nameable action stack"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:752
+msgid ""
+"holds current heading value of the turtle (can be used in place of a number "
+"block)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:753
+msgid "the canvas height"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:754
+msgid "declutters canvas by hiding blocks"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:755 ../TurtleArtActivity.py:368
+#: ../TurtleArtActivity.py:387 ../TurtleArtActivity.py:895
+msgid "Hide blocks"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:756
+msgid "jogs stack right"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:757
+msgid "identity operator used for extending blocks"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:758
+msgid "if-then-else operator that uses boolean operators from Numbers palette"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:759
+msgid "if-then operator that uses boolean operators from Numbers palette"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:760
+msgid "Sugar Journal media object"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:761
+msgid "query for keyboard input (results stored in keyboard block)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:762
+msgid "holds results of query-keyboard block"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:763
+msgid "xcor of left of screen"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:764
+msgid "turns turtle counterclockwise (angle in degrees)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:765
+msgid "logical less-than operator"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:766
+msgid "subtracts bottom numeric input from top numeric input"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:767
+msgid "a programmable block: used to add advanced math equations, e.g., sin(x)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:768
+msgid ""
+"a programmable block: used to add advanced single-variable math equations, e."
+"g., sin(x)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:769
+msgid ""
+"a programmable block: used to add advanced multi-variable math equations, e."
+"g., sqrt(x*x+y*y)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:770
+msgid ""
+"a programmable block: used to add advanced multi-variable math equations, e."
+"g., sin(x+y+z)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:771
+msgid "displays next palette"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:772 ../TurtleArt/taconstants.py:855
+#: ../TurtleArt/taconstants.py:856 ../TurtleArt/taconstants.py:857
+msgid "runs code found in the tamyblock.py module found in the Journal"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:773
+msgid "logical NOT operator"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:774
+msgid "Palette of numeric operators"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:775
+msgid "used as numeric input in mathematic operators"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:776
+msgid "logical OR operator"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:777
+msgid "changes the orientation of the palette of blocks"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:778
+msgid "Turtle will draw when moved."
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:779
+msgid "Palette of pen commands"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:780
+msgid "holds current pen size (can be used in place of a number block)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:781
+msgid "Turtle will not draw when moved."
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:782 ../TurtleArt/taconstants.py:843
+msgid "presentation template: select Journal object (with description)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:783 ../TurtleArt/taconstants.py:844
+msgid "presentation template: select Journal object (no description)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:784 ../TurtleArt/taconstants.py:785
+#: ../TurtleArt/taconstants.py:845 ../TurtleArt/taconstants.py:846
+msgid "presentation template: select two Journal objects"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:786 ../TurtleArt/taconstants.py:847
+msgid "presentation template: select four Journal objects"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:787 ../TurtleArt/taconstants.py:848
+msgid "presentation template: list of bullets"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:788
+msgid "microphone input pitch"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:789
+msgid "adds two alphanumeric inputs"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:790
+msgid "displays polar coordinates"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:791
+msgid "pops value off FILO (first-in last-out heap)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:792
+msgid "Palette of presentation templates"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:793
+msgid "prints value in status block at bottom of the screen"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:794
+msgid "shows values in FILO (first-in last-out heap)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:795
+msgid "multiplies two numeric inputs"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:796
+msgid "pushes value onto FILO (first-in last-out heap)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:797
+msgid "returns random number between minimum (top) and maximum (bottom) values"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:798
+msgid "RGB color under the turtle is pushed to the stack"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:799
+msgid "modular (remainder) operator"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:800
+msgid "loops specified number of times"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:801
+msgid "sensor input resistance"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:802
+msgid "restores most recent blocks from trash"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:803
+msgid "restore all blocks from trash"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:804
+msgid "xcor of right of screen"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:805
+msgid "turns turtle clockwise (angle in degrees)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:806 ../TurtleArtActivity.py:904
+#: ../turtleart.py:255
+msgid "Run"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:807 ../TurtleArtActivity.py:906
+#: ../turtleart.py:256
+msgid "Step"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:808
+msgid "bottom block in a collapsibe stack: click to collapse"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:809
+msgid "bottom block in a collapsed stack: click to open"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:810 ../TurtleArt/taconstants.py:812
+msgid "top of a collapsible stack"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:811 ../TurtleArt/taconstants.py:813
+msgid "top of a collapsed stack"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:814
+msgid "saves a picture to the Sugar Journal"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:815
+msgid "saves turtle graphics as an SVG file in the Sugar Journal"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:816
+msgid "holds current scale value"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:817
+msgid "returns the color that the turtle \"sees\""
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:818
+msgid "sets color of the line drawn by the turtle"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:819
+msgid "sets gray level of the line drawn by the turtle"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:820
+msgid "sets the heading of the turtle (0 is towards the top of the screen.)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:821
+msgid "sets size of the line drawn by the turtle"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:822
+msgid "sets the scale of media"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:823
+msgid "sets shade of the line drawn by the turtle"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:824
+msgid "sets color of text drawn by the turtle"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:825
+msgid "sets size of text drawn by turtle"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:826
+msgid ""
+"moves turtle to position xcor, ycor; (0, 0) is in the center of the screen."
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:827
+msgid "holds current pen shade"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:828
+msgid "draws text or show media from the Journal"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:829
+msgid "restores hidden blocks"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:830
+msgid "calculates square root"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:831
+msgid "invokes Action 1 stack"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:832
+msgid "invokes Action 2 stack"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:833
+msgid "invokes named action stack"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:834
+msgid "connects action to toolbar run buttons"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:835
+msgid "starts filled polygon (used with end fill block)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:836
+msgid "completes filled polygon (used with start fill block)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:837 ../TurtleArtActivity.py:910
+msgid "Stop turtle"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:838
+msgid "stops current action"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:839
+msgid "stores numeric value in Variable 1"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:840
+msgid "stores numeric value in Variable 2"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:841
+msgid "stores numeric value in named variable"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:842
+msgid "string value"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:849
+msgid "holds current text color (can be used in place of a number block)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:850
+msgid "holds current text size (can be used in place of a number block)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:851
+msgid "ycor of top of screen"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:852
+msgid "Trashcan"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:853
+msgid "Palette of turtle commands"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:854
+msgid "do-until-True operator that uses boolean operators from Numbers palette"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:858
+msgid "sensor voltage"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:859
+msgid "microphone input volume"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:860
+msgid "jogs stack down"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:861
+msgid "pauses program execution a specified number of seconds"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:862
+msgid "do-while-True operator that uses boolean operators from Numbers palette"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:863
+msgid "the canvas width"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:864
+msgid ""
+"holds current x-coordinate value of the turtle (can be used in place of a "
+"number block)"
+msgstr ""
+
+#: ../TurtleArt/taconstants.py:865
+msgid ""
+"holds current y-coordinate value of the turtle (can be used in place of a "
+"number block)"
+msgstr ""
+
+#: ../TurtleArt/taexporthtml.py:122 ../TurtleArt/taexporthtml.py:124
+#: ../TurtleArt/tawindow.py:1304 ../TurtleArt/tawindow.py:2174
+#: ../turtleart.py:204
+msgid "Turtle Art"
+msgstr "Черепашка"
+
+#: ../TurtleArt/talogo.py:700
+msgid "did not output to"
+msgstr ""
+
+#: ../TurtleArt/talogo.py:774
+msgid "I don't know how to"
+msgstr ""
+
+#: ../TurtleArt/talogo.py:967
+msgid "doesn't like"
+msgstr ""
+
+#: ../TurtleArt/talogo.py:967
+msgid "as input"
+msgstr ""
+
+#: ../TurtleArt/tawindow.py:529 ../TurtleArt/tawindow.py:530
+msgid "orientation"
+msgstr ""
+
+#: ../TurtleArt/tawindow.py:540 ../TurtleArt/tawindow.py:793
+msgid "next"
+msgstr ""
+
+#: ../TurtleArt/tawindow.py:2284
+msgid "image"
+msgstr ""
+
+#. Write any metadata (here we specifically set the title of the file
+#. and specify that this is a plain text file).
+#: ../TurtleArtActivity.py:173
+msgid "presentation"
+msgstr ""
+
+#: ../TurtleArtActivity.py:232 ../TurtleArtActivity.py:779
+msgid "Project"
+msgstr "Проект"
+
+#. Write any metadata
+#: ../TurtleArtActivity.py:307
+msgid "snapshot"
+msgstr ""
+
+#: ../TurtleArtActivity.py:326 ../TurtleArtActivity.py:353
+#: ../TurtleArtActivity.py:372 ../TurtleArtActivity.py:382 ../turtleart.py:248
+msgid "Show palette"
+msgstr ""
+
+#: ../TurtleArtActivity.py:333 ../TurtleArtActivity.py:346
+#: ../TurtleArtActivity.py:358 ../TurtleArtActivity.py:375
+#: ../TurtleArtActivity.py:389 ../TurtleArtActivity.py:892 ../turtleart.py:249
+msgid "Hide palette"
+msgstr ""
+
+#: ../TurtleArtActivity.py:365 ../TurtleArtActivity.py:380
+msgid "Show blocks"
+msgstr ""
+
+#: ../TurtleArtActivity.py:480
+msgid "Rescale coordinates down"
+msgstr ""
+
+#: ../TurtleArtActivity.py:488 ../TurtleArtActivity.py:839
+msgid "Rescale coordinates up"
+msgstr ""
+
+#: ../TurtleArtActivity.py:731 ../TurtleArtActivity.py:785 ../turtleart.py:245
+msgid "Edit"
+msgstr ""
+
+#: ../TurtleArtActivity.py:735 ../TurtleArtActivity.py:782 ../turtleart.py:240
+msgid "View"
+msgstr ""
+
+#: ../TurtleArtActivity.py:742 ../TurtleArtActivity.py:791
+msgid "Help"
+msgstr ""
+
+#: ../TurtleArtActivity.py:788
+msgid "Import/Export"
+msgstr ""
+
+#: ../TurtleArtActivity.py:800
+msgid "Save snapshot"
+msgstr ""
+
+#: ../TurtleArtActivity.py:803 ../turtleart.py:221
+msgid "Save as HTML"
+msgstr ""
+
+#: ../TurtleArtActivity.py:806 ../turtleart.py:222
+msgid "Save as Logo"
+msgstr ""
+
+#: ../TurtleArtActivity.py:809 ../turtleart.py:220
+msgid "Save as image"
+msgstr ""
+
+#: ../TurtleArtActivity.py:812
+msgid "Load my block"
+msgstr ""
+
+#: ../TurtleArtActivity.py:816
+msgid "Import project from the Journal"
+msgstr ""
+
+#: ../TurtleArtActivity.py:819 ../turtleart.py:243
+msgid "Copy"
+msgstr ""
+
+#: ../TurtleArtActivity.py:821 ../turtleart.py:244
+msgid "Paste"
+msgstr ""
+
+#: ../TurtleArtActivity.py:823
+msgid "Fullscreen"
+msgstr ""
+
+#: ../TurtleArtActivity.py:827 ../turtleart.py:230
+msgid "Cartesian coordinates"
+msgstr ""
+
+#: ../TurtleArtActivity.py:830 ../turtleart.py:232
+msgid "Polar coordinates"
+msgstr ""
+
+#: ../TurtleArtActivity.py:842 ../turtleart.py:235
+msgid "Grow blocks"
+msgstr ""
+
+#: ../TurtleArtActivity.py:845 ../turtleart.py:236
+msgid "Shrink blocks"
+msgstr ""
+
+#: ../TurtleArtActivity.py:848
+msgid "Samples"
+msgstr "Примеры"
+
+#: ../TurtleArtActivity.py:853
+msgid "Move the cursor over the orange palette for help."
+msgstr ""
+
+#: ../TurtleArtActivity.py:894
+msgid "<Ctrl>p"
+msgstr ""
+
+#: ../TurtleArtActivity.py:897
+msgid "<Ctrl>b"
+msgstr ""
+
+#: ../TurtleArtActivity.py:903
+msgid "<Ctrl>e"
+msgstr ""
+
+#: ../TurtleArtActivity.py:905
+msgid "<Ctrl>r"
+msgstr ""
+
+#: ../TurtleArtActivity.py:907
+msgid "<Ctrl>w"
+msgstr ""
+
+#: ../TurtleArtActivity.py:909
+msgid "<Ctrl>d"
+msgstr ""
+
+#: ../TurtleArtActivity.py:912
+msgid "<Ctrl>s"
+msgstr ""
+
+#: ../turtleart.py:63
+msgid "usage is"
+msgstr ""
+
+#: ../turtleart.py:144
+msgid "No option action:"
+msgstr ""
+
+#: ../turtleart.py:156
+msgid "File not found"
+msgstr ""
+
+#. We can't write to the configuration file, use
+#. a faux file that will persist for the length of
+#. the session.
+#: ../turtleart.py:189
+#, python-format
+msgid "Configuration directory not writable: %s"
+msgstr ""
+
+#: ../turtleart.py:216
+msgid "New"
+msgstr ""
+
+#: ../turtleart.py:217
+msgid "Open"
+msgstr ""
+
+#: ../turtleart.py:218
+msgid "Save"
+msgstr ""
+
+#: ../turtleart.py:219
+msgid "Save As"
+msgstr ""
+
+#: ../turtleart.py:224
+msgid "Upload to Web"
+msgstr ""
+
+#: ../turtleart.py:226
+msgid "Quit"
+msgstr ""
+
+#: ../turtleart.py:227
+msgid "File"
+msgstr ""
+
+#: ../turtleart.py:233
+msgid "Rescale coordinates"
+msgstr ""
+
+#: ../turtleart.py:238
+msgid "Reset block size"
+msgstr ""
+
+#: ../turtleart.py:250
+msgid "Show/hide blocks"
+msgstr ""
+
+#: ../turtleart.py:251
+msgid "Tools"
+msgstr ""
+
+#: ../turtleart.py:258
+msgid "Stop"
+msgstr ""
+
+#: ../turtleart.py:259
+msgid "Turtle"
+msgstr "Черепашка"
+
+#: ../turtleart.py:332
+msgid "You have unsaved work. Would you like to save before quitting?"
+msgstr ""
+
+#: ../turtleart.py:333
+#, fuzzy
+msgid "Save project?"
+msgstr "Проект"
+
+#: ../turtleart.py:541
+msgid ""
+"You must have an account at http://turtleartsite.sugarlabs.org to upload "
+"your project."
+msgstr ""
+
+#: ../turtleart.py:550
+msgid "Username:"
+msgstr ""
+
+#: ../turtleart.py:560
+msgid "Password:"
+msgstr ""
+
+#: ../turtleart.py:571
+msgid "Title:"
+msgstr ""
+
+#: ../turtleart.py:581
+msgid "Description:"
+msgstr ""
+
+#: ../turtleart.py:591
+msgid "Submit to Web"
+msgstr ""
+
+#: ../turtleart.py:595
+msgid "Cancel"
+msgstr ""
+
+#: ../turtleart.py:617
+msgid "Login failed"
+msgstr ""
+
+#: ../turtleart.py:654
+msgid "Failed to upload!"
+msgstr ""
