@@ -50,7 +50,9 @@ except ImportError, e:
 argv = sys.argv[:]  # Workaround for import behavior of gst in tagplay
 sys.argv[1:] = []  # Execution of import gst cannot see '--help' or '-h'
 
-from gettext import gettext as _
+import gettext
+gettext.textdomain('turtleart')
+_ = gettext.gettext
 
 from TurtleArt.taconstants import OVERLAY_LAYER
 from TurtleArt.tautils import data_to_string, data_from_string, get_save_name
