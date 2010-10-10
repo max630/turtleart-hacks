@@ -118,38 +118,38 @@ msgstr "Мои блоки"
 
 #:
 msgid "start"
-msgstr ""
+msgstr "начать"
 
 #:
 msgid "box"
-msgstr "блок"
+msgstr "ящик"
 #:
 msgid "box 1"
-msgstr "блок 1"
+msgstr "ящик 1"
 
 #:
 msgid "box 2"
-msgstr "блок 2"
+msgstr "ящик 2"
 
 #:
 msgid "stack"
-msgstr "цепь"
+msgstr "стопка"
 
 #:
 msgid "stack 1"
-msgstr "цепь 1"
+msgstr "стопка 1"
 
 #:
 msgid "stack 2"
-msgstr "цепь 2"
+msgstr "стопка 2"
 
 #:
 msgid "store in box 1"
-msgstr "сохранить в кармане 1"
+msgstr "сохранить в ящике 1"
 
 #:
 msgid "store in box 2"
-msgstr "сохранить в кармане 2"
+msgstr "сохранить в ящике 2"
 
 #:
 msgid "name"
@@ -193,7 +193,7 @@ msgstr "модуль"
 
 #:
 msgid "print"
-msgstr "печать"
+msgstr "печатать"
 
 #:
 msgid "Pen"
@@ -209,7 +209,7 @@ msgstr "затенение"
 
 #:
 msgid "fill screen"
-msgstr "заполнение"
+msgstr "заполнить"
 
 #:
 msgid "pen up"
@@ -221,7 +221,7 @@ msgstr "опустить перо"
 
 #:
 msgid "set pen size"
-msgstr "размер пера"
+msgstr "изменить размер пера"
 
 #:
 msgid "pen size"
@@ -233,11 +233,11 @@ msgstr "затенение"
 
 #:
 msgid "set color"
-msgstr "цвет"
+msgstr "изменить цвет"
 
 #:
 msgid "set text color"
-msgstr ""
+msgstr "изменить цвет текста"
 
 #:
 msgid "Blocks"
@@ -265,7 +265,7 @@ msgstr "влево"
 
 #:
 msgid "arc"
-msgstr "круг"
+msgstr "дуга"
 
 #:
 msgid "angle"
@@ -281,7 +281,7 @@ msgstr "направление"
 
 #:
 msgid "set heading"
-msgstr "направление"
+msgstr "изменить направление"
 
 #:
 msgid "clean"
@@ -289,7 +289,7 @@ msgstr "очистить"
 
 #:
 msgid "set xy"
-msgstr "координаты"
+msgstr "изменить координаты"
 
 #:
 msgid "x"
