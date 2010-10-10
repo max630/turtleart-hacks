@@ -12,8 +12,8 @@ if len(sys.argv) > 1 and '--no-sugar' == sys.argv[1]:
     from DistUtilsExtra.command import build_i18n, build_extra
     
     DATA_FILES = [
-        ('icons', glob.glob('icons/*')),
-        ('images', glob.glob('images/*')),
+        ('/usr/share/turtleart/icons', glob.glob('icons/*')),
+        ('/usr/share/turtleart/images', glob.glob('images/*')),
         ('/usr/share/applications', ['turtleart.desktop'])
         ]
 
