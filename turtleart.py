@@ -51,7 +51,7 @@ argv = sys.argv[:]  # Workaround for import behavior of gst in tagplay
 sys.argv[1:] = []  # Execution of import gst cannot see '--help' or '-h'
 
 import gettext
-gettext.textdomain('turtleart')
+gettext.textdomain('TurtleArt')
 _ = gettext.gettext
 
 from TurtleArt.taconstants import OVERLAY_LAYER

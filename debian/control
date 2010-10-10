@@ -3,7 +3,7 @@ Section: misc
 Priority: optional
 Maintainer: Matthew Gallagher <mattva01@gmail.com>
 Uploaders: Luke Faraone <lfaraone@debian.org>
-Build-Depends: cdbs, debhelper (>= 7), python, python-support, help2man
+Build-Depends: cdbs, debhelper (>= 7), python, python-support, help2man, python-distutils-extra
 XS-Python-Version: all
 Standards-Version: 3.9.1
 Vcs-Bzr: http://bzr.debian.org/bzr/collab-maint/turtleart

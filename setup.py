@@ -9,6 +9,7 @@ if len(sys.argv) > 1 and '--no-sugar' == sys.argv[1]:
     
     import glob, os.path, string
     from distutils.core import setup
+    from DistUtilsExtra.command import build_i18n, build_extra
     
     DATA_FILES = [
         ('icons', glob.glob('icons/*')),
@@ -24,6 +25,8 @@ if len(sys.argv) > 1 and '--no-sugar' == sys.argv[1]:
            packages = ['TurtleArt'],
            scripts = ['turtleart'],
            data_files = DATA_FILES,
+	   cmdclass = {'build_i18n': build_i18n.build_i18n,
+			'build': build_extra.build_extra},
            )
 else: 
     from sugar.activity import bundlebuilder
