@@ -27,7 +27,8 @@ try:
     import json
     json.dumps
     from json import load as jload
-    from json import dump as jdump
+    def jdump(data, io):
+	json.dump(data, io, ensure_ascii=False)
 except (ImportError, AttributeError):
     try:
         import simplejson as json
@@ -114,6 +115,13 @@ def get_id(connection):
         return None
     return connection.id
 
+def json_dump_pretty(data):
+    """ Same as json_dump, but prints each element on its own line. """
+    try:
+	return '[\n ' + ',\n '.join([json_dump(elem) for elem in data]) + '\n]'
+    except TypeError:
+	return json_dump(data)
+
 def json_dump(data):
     """ Save data using available JSON tools. """
     if OLD_SUGAR_SYSTEM is True:
@@ -174,7 +182,7 @@ def data_to_file(data, ta_file):
 
 def data_to_string(data):
     """ JSON dump a string. """
-    return json_dump(data)
+    return json_dump_pretty(data)
 
 def do_dialog(dialog, suffix, load_save_folder):
     """ Open a file dialog. """
