@@ -17,7 +17,7 @@ msgstr ""
 
 #: 
 msgid "Turtle Art"
-msgstr "Turtle Art"
+msgstr "Turtle Blocks"
 
 #:
 msgid "Flow"

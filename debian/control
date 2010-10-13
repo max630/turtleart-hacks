@@ -1,0 +1,51 @@
+Source: turtleart
+Section: misc
+Priority: optional
+Maintainer: Matthew Gallagher <mattva01@gmail.com>
+Uploaders: Luke Faraone <lfaraone@debian.org>
+Build-Depends: cdbs, debhelper (>= 7), python, python-support, help2man
+XS-Python-Version: all
+Standards-Version: 3.9.1
+Vcs-Bzr: http://bzr.debian.org/bzr/collab-maint/turtleart
+Vcs-Browser: http://bzr.debian.org/loggerhead/collab-maint/turtleart/
+Homepage: http://wiki.sugarlabs.org/go/Activities/Turtle_Art
+
+Package: turtleart
+Architecture: all
+Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}, 
+         python-gobject, python-gtk2, python-gconf, python-pycurl, 
+         python-gst0.10, libgtk2.0-bin
+XB-Python-Version: ${python:Versions}
+Description: a LOGO-like tool for teaching programming
+ Turtle Art is an activity with a Logo-inspired graphical "turtle" that
+ draws colorful art based on snap-together visual programming elements.
+ .
+ Turtle Art is intended to be a stepping stone to the Logo programming 
+ language, but there are many restrictions compared to Logo. However, 
+ you can export your Turtle Art creations to Berkeley Logo. 
+ . 
+ Turtle Art was initially written in Java, and reimplemented in Python.
+ A modified Python version with additional features, Turtle Blocks, is
+ under active development and is included in this package.
+ . 
+ This package contains the files needed to use it as a standalone 
+ application. 
+
+Package: sugar-turtleart-activity
+Architecture: all
+Depends: turtleart, ${python:Depends}, ${cdbs:Depends}, 
+         ${shlibs:Depends}, ${misc:Depends}
+Description: a LOGO-like tool for teaching programming - Sugar activity
+ Turtle Art is an activity with a Logo-inspired graphical "turtle" that
+ draws colorful art based on snap-together visual programming elements.
+ .
+ Turtle Art is intended to be a stepping stone to the Logo programming
+ language, but there are many restrictions compared to Logo. However,
+ you can export your Turtle Art creations to Berkeley Logo.
+ . 
+ Turtle Art was initially written in Java, and reimplemented in Python.
+ A modified Python version with additional features, Turtle Blocks, is
+ under active development and is included in this package.
+ .
+ This package contains the files needed to use it in Sugar.
+

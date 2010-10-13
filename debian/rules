@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+DEB_PYTHON_SYSTEM=pysupport
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/python-distutils.mk
+
+# Disable bundlebuilder, use distutils instead.
+DEB_PYTHON_SETUP_CMD = setup.py --no-sugar
+
+# Add here any variable or target overrides you need.
+
+makebuilddir::
+	ln -f turtleart.py turtleart
+	chmod +x turtleart
+
+
+clean::
+	rm -f turtleart
+
+manpages:
+	 help2man -N --version-string==$(shell dpkg-parsechangelog | sed -rne 's,^Version: ([^-]+).*,\1,p') --source='Sugar Labs' --include='./debian/help2man.include' --name='a LOGO-like tool for teaching programming' ./turtleart.py > ./debian/turtleart.1
+

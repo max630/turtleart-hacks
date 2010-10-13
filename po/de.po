@@ -1615,3 +1615,15 @@ msgstr "1x1 Bild"
 
 #~ msgid "vres"
 #~ msgstr "vert. Auflösung"
+
+msgid "set gray"
+msgstr "setze Grau"
+
+msgid "gray"
+msgstr "Grau"
+
+msgid "start fill"
+msgstr "start zu füllen"
+
+msgid "end fill"
+msgstr "stop Füllung"

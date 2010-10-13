@@ -1077,3 +1077,15 @@ msgstr "fixe xy"
 
 #~ msgid "vres"
 #~ msgstr "vres"
+
+msgid "set gray"
+msgstr "fixe le gris"
+
+msgid "gray"
+msgstr "gris"
+
+msgid "start fill"
+msgstr "commencer à remplir"
+
+msgid "end fill"
+msgstr "arrêter de remplir"

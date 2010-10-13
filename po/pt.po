@@ -349,3 +349,15 @@ msgstr "hres"
 #:
 msgid "vres"
 msgstr "vres"
+
+msgid "set gray"
+msgstr "ajustar a cinzento"
+
+msgid "gray"
+msgstr "cinzento"
+
+msgid "start fill"
+msgstr "comece a preencher"
+
+msgid "end fill"
+msgstr "parar de encher"

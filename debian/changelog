@@ -1,0 +1,35 @@
+turtleart (98-1) unstable; urgency=low
+
+  [ Matthew Gallagher ]
+  * Don't modify other packages' files in maintainer scripts to adhere
+    to Debian Policy. Closes: #596474.
+  * Correct typo in debian/sugar-turtleart-activity.links so the activity 
+    icon is installed properly
+
+  [ Luke Faraone ]
+  * New upstream version. 
+  * Depend on libgtk2.0-bin to solve broken installation script.  
+  * Wrap tests in postrm in if statements to allow package removal when
+    used commands are removed.
+
+ -- Luke Faraone <lfaraone@debian.org>  Mon, 13 Sep 2010 22:02:36 -0400
+
+turtleart (96-1) unstable; urgency=low
+
+  * New upstream version.
+  * Include sugar-turtleart-activity so TurtleArt works in Sugar. 
+  * debian/rules: Disable bundlebuilder in setup.py, use distutils instead. 
+  * Drop 1000-turtleart-desktop-encoding-fix.patch, merged upstream. 
+
+ -- Luke Faraone <lfaraone@debian.org>  Mon, 23 Aug 2010 22:35:55 -0400
+
+turtleart (94-1) unstable; urgency=low
+
+  [ Matthew Gallagher ]
+  * Initial upload. Closes: #592689.
+
+  [ Luke Faraone ]
+  * Rewrap description, clean up copyright, and other fixes. 
+  * Switch to dpkg-source 3.0 (quilt) format
+
+ -- Luke Faraone <lfaraone@debian.org>  Fri, 13 Aug 2010 11:54:42 -0400

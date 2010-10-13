@@ -15,7 +15,7 @@ msgstr ""
 
 #: activity/activity.info:2
 msgid "Turtle Art"
-msgstr ""
+msgstr "Turtle Blocks"
 
 #: tasetup.py:46 tasetup.py:49 tasetup.py:50 tasetup.py:51 tasetup.py:52
 #: tasetup.py:53 tasetup.py:54

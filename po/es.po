@@ -1476,3 +1476,30 @@ msgstr "dibujos 1x2"
 msgid "1×1 picture"
 msgstr "dibujos 1x1"
 
+msgid "set gray"
+msgstr "fijar el gris"
+
+msgid "gray"
+msgstr "gris"
+
+msgid "start fill"
+msgstr "empezar relleno"
+
+msgid "end fill"
+msgstr "terminar relleno"
+
+#: /home/walter/Desktop/turtleblocks/TurtleArt/taconstants.py:357
+msgid "turtle sees"
+msgstr "tortuga ve"
+
+#: /home/walter/Desktop/turtleblocks/TurtleArt/taconstants.py:340
+msgid "read pixel"
+msgstr "obtener píxel"
+
+#: /home/walter/Desktop/turtleblocks/TurtleArt/taconstants.py:807
+msgid "returns the color that the turtle \"sees\""
+msgstr "devuelve el color que ve la tortuga"
+
+#: /home/walter/Desktop/turtleblocks/TurtleArt/taconstants.py:790
+msgid "RGB color under the turtle is pushed to the stack"
+msgstr "apila el valor de pixel sobre la pila FILO"

@@ -1,0 +1,3 @@
+TurtleArtActivity.py usr/share/sugar/activities/TurtleArt.activity/
+activity/ usr/share/sugar/activities/TurtleArt.activity/
+setup.py usr/share/sugar/activities/TurtleArt.activity/
