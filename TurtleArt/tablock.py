@@ -20,18 +20,37 @@
 #THE SOFTWARE.
 
 import gtk
-from taconstants import *
-from tasprite_factory import SVG, svg_str_to_pixbuf
-import sprites
+
 from gettext import gettext as _
 
-#
-# A class for the list of blocks and everything they share in common
-#
+from taconstants import EXPANDABLE, EXPANDABLE_BLOCKS, EXPANDABLE_ARGS, \
+    PRIMITIVES, OLD_NAMES, BLOCK_SCALE, BLOCK_NAMES, CONTENT_BLOCKS, \
+    PALETTES, COLORS, BASIC_STYLE_HEAD, BASIC_STYLE_HEAD_1ARG, \
+    BASIC_STYLE_TAIL, BASIC_STYLE, BASIC_STYLE_EXTENDED, BASIC_STYLE_1ARG, \
+    BASIC_STYLE_VAR_ARG, BULLET_STYLE, BASIC_STYLE_2ARG, BOX_STYLE, \
+    BOX_STYLE_MEDIA, NUMBER_STYLE, NUMBER_STYLE_VAR_ARG, NUMBER_STYLE_BLOCK, \
+    NUMBER_STYLE_PORCH, NUMBER_STYLE_1ARG, NUMBER_STYLE_1STRARG, \
+    COMPARE_STYLE, BOOLEAN_STYLE, NOT_STYLE, FLOW_STYLE, FLOW_STYLE_TAIL, \
+    FLOW_STYLE_1ARG, FLOW_STYLE_BOOLEAN, FLOW_STYLE_WHILE, FLOW_STYLE_ELSE, \
+    COLLAPSIBLE_TOP, COLLAPSIBLE_TOP_NO_ARM, COLLAPSIBLE_TOP_NO_LABEL, \
+    COLLAPSIBLE_TOP_NO_ARM_NO_LABEL, COLLAPSIBLE_BOTTOM, PORTFOLIO_STYLE_2x2, \
+    PORTFOLIO_STYLE_1x1, PORTFOLIO_STYLE_2x1, PORTFOLIO_STYLE_1x2, \
+    STANDARD_STROKE_WIDTH, SELECTED_STROKE_WIDTH, SELECTED_COLOR, BOX_COLORS, \
+    BASIC_STYLE_EXTENDED_VERTICAL
+from tasprite_factory import SVG, svg_str_to_pixbuf
+import sprites
+
+import logging
+_logger = logging.getLogger('turtleart-activity')
+
+
 class Blocks:
-    def __init__(self, font_scale_factor = 1):
+    """ A class for the list of blocks and everything they share in common """
+
+    def __init__(self, font_scale_factor=1, decimal_point='.'):
         self.list = []
         self.font_scale_factor = font_scale_factor
+        self.decimal_point = decimal_point
 
     def get_block(self, i):
         if i < 0 or i > len(self.list)-1:
@@ -42,7 +61,7 @@ class Blocks:
     def length_of_list(self):
         return(len(self.list))
 
-    def append_to_list(self,block):
+    def append_to_list(self, block):
         self.list.append(block)
 
     def remove_from_list(self, block):
@@ -57,24 +76,50 @@ class Blocks:
     def set_scale(self, scale):
         for b in self.list:
             for i in range(len(b._font_size)):
-                b._font_size[i] *= b.scale*scale/self.font_scale_factor
+                b._font_size[i] *= b.scale * scale / self.font_scale_factor
         self.font_scale_factor = scale
 
-    #
-    # sprite utilities
-    #
     def spr_to_block(self, spr):
         for b in self.list:
             if spr == b.spr:
                 return b
         return None
 
-#
-# A class for the individual blocks
-#
+    def get_next_block(self, block):
+        if block is None:
+            return None
+        try:
+            i = self.list.index(block)
+        except ValueError:
+            return None
+        i += 1
+        if i < len(self.list):
+            return self.list[i]
+        else:
+            return self.list[0]
+
+    def get_next_block_of_same_type(self, block):
+        if block is None:
+            return None
+        type = block.type
+        i = 0
+        while block is not None:
+            block = self.get_next_block(block)
+            if block is not None:
+                if block.type == type:
+                    return block
+            if i == len(self.list):
+                break
+            i += 1
+        return None
+
+
 class Block:
+    """ A class for the individual blocks """
+
     def __init__(self, block_list, sprite_list, name, x, y, type='block',
-                 values=[], scale=BLOCK_SCALE, colors=["#FF0000","#A00000"]):
+                 values=[], scale=BLOCK_SCALE, colors=["#FF0000", "#A00000"]):
+        self.block_list = block_list
         self.spr = None
         self.shapes = [None, None]
         self.name = name
@@ -93,11 +138,12 @@ class Block:
         self._font_size = [6.0, 4.5]
         self._image = None
 
-        if OLD_NAMES.has_key(self.name):
+        if self.name in OLD_NAMES:
             self.name = OLD_NAMES[self.name]
 
         for i in range(len(self._font_size)):
-            self._font_size[i] *= self.scale*block_list.font_scale_factor
+            self._font_size[i] *= self.scale * \
+                self.block_list.font_scale_factor
 
         for v in (values):
             self.values.append(v)
@@ -105,86 +151,81 @@ class Block:
         # If there is already a block with the same name, reuse it
         copy_block = None
         if self.name not in EXPANDABLE and \
+           self.name not in EXPANDABLE_BLOCKS and \
+           self.name not in EXPANDABLE_ARGS and \
            self.name not in ['string', 'sandwichtop', 'sandwichtop_no_label']:
-            for b in block_list.list:
+            for b in self.block_list.list:
                 if b.scale == self.scale and b.name == self.name:
                     copy_block = b
                     break
         self._new_block_from_factory(sprite_list, x, y, copy_block)
 
-        if PRIMITIVES.has_key(name):
+        if name in PRIMITIVES:
             self.primitive = PRIMITIVES[self.name]
 
-        block_list.append_to_list(self)
+        self.block_list.append_to_list(self)
 
-    # We may want to highlight a block...
     def highlight(self):
+        """ We may want to highlight a block... """
         if self.spr is not None:
             self.spr.set_shape(self.shapes[1])
 
-    # Or unhighlight it.
     def unhighlight(self):
+        """ Or unhighlight it. """
         if self.spr is not None:
             self.spr.set_shape(self.shapes[0])
 
-    # We need to resize some blocks on the fly so that the labels fit.
     def resize(self):
-        if not self.spr is not None:
+        """ We need to resize some blocks on the fly so the labels fit. """
+        if self.spr is None:
             return
-        dx = (self.spr.label_width()-self.spr.label_safe_width())/self.scale
+        dx = (self.spr.label_width() - self.spr.label_safe_width()) / \
+            self.scale
         if dx !=0:
             self.dx += dx
             if self.dx < 0:
                 self.dx = 0
             self.refresh()
 
-    # Some blocks get a skin.
     def set_image(self, image, x, y):
-        if not self.spr is not None:
+        """ Some blocks get a skin. """
+        if self.spr is None:
             return
         self._image = image
         self.spr.set_image(image, 1, x, y)
 
-    # The skin might need scaling.
-    # Keep the original here, the scaled version stays with the sprite.
     def scale_image(self, x, y, w, h):
-        if not self.spr is not None:
+        """ The skin might need scaling. """
+        if self.spr is None:
             return
         if self._image is not None:
-            tmp = self._image.scale_simple(w, h,
-                                   gtk.gdk.INTERP_NEAREST)
+            tmp = self._image.scale_simple(w, h, gtk.gdk.INTERP_NEAREST)
             self.spr.set_image(tmp, 1, x, y)
 
-    # We may want to rescale blocks as well.
     def rescale(self, scale):
-        if not self.spr is not None:
+        """ We may want to rescale blocks as well. """
+        if self.spr is None:
             return
         for i in range(len(self._font_size)):
             self._font_size[i] /= self.scale
-        self.dx /= self.scale
-        self.ex /= self.scale
-        self.ey /= self.scale
         self.scale = scale
         for i in range(len(self._font_size)):
             self._font_size[i] *= self.scale
-        self.dx *= self.scale
-        self.ex *= self.scale
-        self.ey *= self.scale
         self._set_label_attributes()
         self.svg.set_scale(self.scale)
         self.refresh()
         self.spr.draw()
 
     def refresh(self):
-        if not self.spr is not None:
+        if self.spr is None:
             return
         self._make_block(self.svg)
         self._set_margins()
         self.spr.set_shape(self.shapes[0])
 
-    # We may want to add additional slots for arguments ("innies").
     def add_arg(self, keep_expanding=True):
-        if not self.spr is not None:
+        """ We may want to add additional slots for arguments ("innies"). """
+        if self.spr is None:
             return
         h = self.svg.get_height()
         self._ei += 1
@@ -193,24 +234,27 @@ class Block:
         else:
             self.svg.set_show(False)
         self.refresh()
-        return self.svg.get_height()-h
+        return self.svg.get_height() - h
 
-    # We may want to grow a block vertically.
     def expand_in_y(self, dy):
-        if not self.spr is not None:
+        """ We may want to grow a block vertically. """
+        if self.spr is None:
             return
         self.ey += dy
         if self.type == 'block':
-            self.svg.set_hide(True)
+            if self.ey > 0:
+                self.svg.set_hide(True)
+            else:
+                self.svg.set_hide(False)
             self.svg.set_show(True)
         else:
             self.svg.set_hide(False)
             self.svg.set_show(False)
         self.refresh()
 
-    # We may want to grow a block horizontally.
     def expand_in_x(self, dx):
-        if not self.spr is not None:
+        """ We may want to grow a block horizontally. """
+        if self.spr is None:
             return
         self.ex += dx
         if self.type == 'block':
@@ -222,7 +266,7 @@ class Block:
         self.refresh()
 
     def reset_x(self):
-        if not self.spr is not None:
+        if self.spr is None:
             return 0
         dx = -self.ex
         self.ex = 0
@@ -235,7 +279,7 @@ class Block:
         return dx
 
     def reset_y(self):
-        if not self.spr is not None:
+        if self.spr is None:
             return 0
         dy = -self.ey
         self.ey = 0
@@ -248,7 +292,7 @@ class Block:
         return dy
 
     def get_expand_x_y(self):
-        if not self.spr is not None:
+        if self.spr is None:
             return(0, 0)
         return (self.ex, self.ey)
 
@@ -275,11 +319,14 @@ class Block:
             self.shapes[0] = copy_block.shapes[0]
             self.spr = sprites.Sprite(sprite_list, x, y, self.shapes[0])
             self.spr._margins = copy_block.spr._margins[:]
-            if len(copy_block.shapes) > 1:             
+            if len(copy_block.shapes) > 1:
                 self.shapes[1] = copy_block.shapes[1]
             self.docks = copy_block.docks[:]
         else:
-            if self.name in EXPANDABLE and self.type == 'block':
+            if (self.name in EXPANDABLE or \
+                self.name in EXPANDABLE_BLOCKS or \
+                self.name in EXPANDABLE_ARGS) and \
+               self.type == 'block':
                 self.svg.set_show(True)
 
             self._make_block(self.svg)
@@ -293,11 +340,15 @@ class Block:
                 len(self.values) > 0:
             for i, v in enumerate(self.values):
                 if v is not None:
-                    self._set_labels(i, str(v))
-        elif BLOCK_NAMES.has_key(self.name):
+                    if self.name == 'number':
+                        self._set_labels(i,
+                           str(v).replace('.', self.block_list.decimal_point))
+                    else:
+                        self._set_labels(i, str(v))
+        elif self.name in BLOCK_NAMES:
             for i, n in enumerate(BLOCK_NAMES[self.name]):
                 self._set_labels(i, n)
-            
+
         if copy_block is None:
             if self.spr.label_width() > self.spr.label_safe_width():
                 self.resize()
@@ -315,14 +366,14 @@ class Block:
             n = len(BLOCK_NAMES[self.name])
         for i in range(n):
             if i == 1: # top
-                self.spr.set_label_attributes(int(self._font_size[1]+0.5), True,
-                                              "right", "top", i)
+                self.spr.set_label_attributes(int(self._font_size[1] + 0.5),
+                                              True, 'right', 'top', i)
             elif i == 2: # bottom
-                self.spr.set_label_attributes(int(self._font_size[1]+0.5), True,
-                                              "right", "bottom", i)
+                self.spr.set_label_attributes(int(self._font_size[1] + 0.5),
+                                              True, 'right', 'bottom', i)
             else:
-                self.spr.set_label_attributes(int(self._font_size[0]+0.5), True,
-                                              "center", "middle", i)
+                self.spr.set_label_attributes(int(self._font_size[0] + 0.5),
+                                              True, 'center', 'middle', i)
 
     def _set_labels(self, i, label):
         self.spr.set_label(label, i)
@@ -340,7 +391,9 @@ class Block:
         elif self.name in BASIC_STYLE_HEAD:
             self._make_basic_style_head(svg)
         elif self.name in BASIC_STYLE_EXTENDED:
-            self._make_basic_style(svg, 16)
+            self._make_basic_style(svg, 16, 16)
+        elif self.name in BASIC_STYLE_EXTENDED_VERTICAL:
+            self._make_basic_style(svg, 0, 4)
         elif self.name in BASIC_STYLE_HEAD_1ARG:
             self._make_basic_style_head_1arg(svg)
         elif self.name in BASIC_STYLE_TAIL:
@@ -388,13 +441,13 @@ class Block:
         elif self.name in FLOW_STYLE_ELSE:
             self._make_flow_style_else(svg)
         elif self.name in COLLAPSIBLE_TOP:
-            self._make_collapsible_style_top(svg)
+            self._make_collapsible_style_top(svg, arm=True, label=True)
         elif self.name in COLLAPSIBLE_TOP_NO_ARM:
-            self._make_collapsible_style_top(svg, no_arm=True)
+            self._make_collapsible_style_top(svg, arm=False, label=True)
         elif self.name in COLLAPSIBLE_TOP_NO_LABEL:
-            self._make_collapsible_style_top(svg, label=False)
+            self._make_collapsible_style_top(svg, arm=True, label=False)
         elif self.name in COLLAPSIBLE_TOP_NO_ARM_NO_LABEL:
-            self._make_collapsible_style_top(svg, no_arm=True, label=False)
+            self._make_collapsible_style_top(svg, arm=False, label=False)
         elif self.name in COLLAPSIBLE_BOTTOM:
             self._make_collapsible_style_bottom(svg)
         elif self.name in PORTFOLIO_STYLE_2x2:
@@ -407,10 +460,11 @@ class Block:
             self._make_portfolio_style_1x2(svg)
         else:
             self._make_basic_style(svg)
-            print "WARNING: I don't know how to create a %s block" % (self.name)
+            _logger.debug("WARNING: I don't know how to create a %s block" % \
+                              (self.name))
 
     def _set_colors(self, svg):
-        if BOX_COLORS.has_key(self.name):
+        if self.name in BOX_COLORS:
             self.colors = BOX_COLORS[self.name]
         else:
             for p in range(len(PALETTES)):
@@ -418,14 +472,15 @@ class Block:
                     self.colors = COLORS[p]
         self.svg.set_colors(self.colors)
 
-    def _make_basic_style(self, svg, extension=0):
-        self.svg.expand(self.dx+self.ex+extension, self.ey+extension)
+    def _make_basic_style(self, svg, extend_x=0, extend_y=0):
+        self.svg.expand(self.dx + self.ex + extend_x, self.ey + extend_y)
         self._make_block_graphics(svg, self.svg.basic_block)
-        self.docks = [['flow',True,self.svg.docks[0][0],self.svg.docks[0][1]],
-                      ['flow',False,self.svg.docks[1][0],self.svg.docks[1][1]]]
+        self.docks = [['flow', True, self.svg.docks[0][0],
+                       self.svg.docks[0][1]], ['flow',
+                       False, self.svg.docks[1][0], self.svg.docks[1][1]]]
 
     def _make_basic_style_head(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
         self.svg.set_slot(False)
         self.svg.set_cap(True)
         self._make_block_graphics(svg, self.svg.basic_block)
@@ -434,7 +489,7 @@ class Block:
                                       self.svg.docks[0][1]]]
 
     def _make_basic_style_head_1arg(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
         self.svg.set_innie([True])
         self.svg.set_slot(False)
         self.svg.set_cap(True)
@@ -446,7 +501,7 @@ class Block:
                                       self.svg.docks[1][1]]]
 
     def _make_basic_style_tail(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
         self.svg.set_tab(False)
         self._make_block_graphics(svg, self.svg.basic_block)
         self.docks = [['flow', True, self.svg.docks[0][0],
@@ -454,7 +509,7 @@ class Block:
                       ['unavailable', False, 0, 0]]
 
     def _make_basic_style_1arg(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
         self.svg.set_innie([True])
         self._make_block_graphics(svg, self.svg.basic_block)
         self.docks = [['flow', True, self.svg.docks[0][0],
@@ -465,8 +520,8 @@ class Block:
                                       self.svg.docks[2][1]]]
 
     def _make_basic_style_2arg(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
-        self.svg.set_innie([True,True])
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
+        self.svg.set_innie([True, True])
         self._make_block_graphics(svg, self.svg.basic_block)
         self.docks = [['flow', True, self.svg.docks[0][0],
                                      self.svg.docks[0][1]],
@@ -478,7 +533,7 @@ class Block:
                                       self.svg.docks[3][1]]]
 
     def _make_basic_style_var_arg(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
         innie = [True]
         for i in range(self._ei):
             innie.append(True)
@@ -489,13 +544,13 @@ class Block:
                       ['number', False, self.svg.docks[1][0],
                                         self.svg.docks[1][1]]]
         for i in range(self._ei):
-            self.docks.append(['number', False, self.svg.docks[i+2][0],
-                                                self.svg.docks[i+2][1]])
-        self.docks.append(['flow', False, self.svg.docks[self._ei+2][0],
-                                      self.svg.docks[self._ei+2][1]])
+            self.docks.append(['number', False, self.svg.docks[i + 2][0],
+                                                self.svg.docks[i + 2][1]])
+        self.docks.append(['flow', False, self.svg.docks[self._ei + 2][0],
+                                      self.svg.docks[self._ei + 2][1]])
 
     def _make_bullet_style(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
         innie = [True, True]
         for i in range(self._ei):
             innie.append(True)
@@ -508,28 +563,28 @@ class Block:
                       ['string', False, self.svg.docks[2][0],
                                         self.svg.docks[2][1]]]
         for i in range(self._ei):
-            self.docks.append(['string', False, self.svg.docks[i+3][0],
-                                                self.svg.docks[i+3][1]])
-        self.docks.append(['flow', False, self.svg.docks[self._ei+3][0],
-                                      self.svg.docks[self._ei+3][1], ']'])
+            self.docks.append(['string', False, self.svg.docks[i + 3][0],
+                                                self.svg.docks[i + 3][1]])
+        self.docks.append(['flow', False, self.svg.docks[self._ei + 3][0],
+                                      self.svg.docks[self._ei + 3][1], ']'])
 
     def _make_box_style(self, svg):
-        self.svg.expand(60+self.dx+self.ex, self.ey)
+        self.svg.expand(60 + self.dx + self.ex, self.ey)
         self._make_block_graphics(svg, self.svg.basic_box)
         self.docks = [['number', True, self.svg.docks[0][0],
                                        self.svg.docks[0][1]],
                       ['unavailable', False, 0, 0]]
 
     def _make_media_style(self, svg):
-        self.svg.expand(40+self.dx+self.ex, 10+self.ey)
+        self.svg.expand(40 + self.dx + self.ex, 10 + self.ey)
         self._make_block_graphics(svg, self.svg.basic_box)
         self.docks = [['number', True, self.svg.docks[0][0],
                                        self.svg.docks[0][1]],
                       ['unavailable', False, 0, 0]]
 
     def _make_number_style(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
-        self.svg.set_innie([True,True])
+        self.svg.expand(self.dx + self.ex, self.ey)
+        self.svg.set_innie([True, True])
         self.svg.set_outie(True)
         self.svg.set_tab(False)
         self.svg.set_slot(False)
@@ -543,30 +598,30 @@ class Block:
                       ['number', False, self.svg.docks[0][0],
                                         self.svg.docks[0][1]],
                       ['number', False, self.svg.docks[1][0],
-                                        self.svg.docks[1][1]]] 
+                                        self.svg.docks[1][1]]]
 
     def _make_number_style_var_arg(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
+        self.svg.expand(self.dx + self.ex, self.ey)
         innie = [True]
-        for i in range(self._ei+1):
+        for i in range(self._ei + 1):
             innie.append(True)
         self.svg.set_innie(innie)
         self.svg.set_outie(True)
         self.svg.set_tab(False)
         self.svg.set_slot(False)
         self._make_block_graphics(svg, self.svg.basic_block)
-        self.docks = [['number', True, self.svg.docks[2+self._ei][0],
-                                       self.svg.docks[2+self._ei][1]],
+        self.docks = [['number', True, self.svg.docks[2 + self._ei][0],
+                                       self.svg.docks[2 + self._ei][1]],
                       ['number', False, self.svg.docks[0][0],
                                         self.svg.docks[0][1]]]
-        for i in range(self._ei+1):
-            self.docks.append(['number', False, self.svg.docks[i+1][0],
-                                                self.svg.docks[i+1][1]])
+        for i in range(self._ei + 1):
+            self.docks.append(['number', False, self.svg.docks[i + 1][0],
+                                                self.svg.docks[i + 1][1]])
         self.docks.append(['unavailable', False, 0, 0])
 
     def _make_number_style_block(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
-        self.svg.set_innie([True,True])
+        self.svg.expand(self.dx + self.ex, self.ey)
+        self.svg.set_innie([True, True])
         self.svg.set_outie(True)
         self.svg.set_tab(False)
         self.svg.set_slot(False)
@@ -580,7 +635,7 @@ class Block:
                       ['unavailable', False, 0, 0, ')']]
 
     def _make_number_style_1arg(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
+        self.svg.expand(self.dx + self.ex, self.ey)
         self.svg.set_innie([True])
         self.svg.set_outie(True)
         self.svg.set_tab(False)
@@ -592,7 +647,7 @@ class Block:
                                         self.svg.docks[0][1]]]
 
     def _make_number_style_1strarg(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
+        self.svg.expand(self.dx + self.ex, self.ey)
         self.svg.set_innie([True])
         self.svg.set_outie(True)
         self.svg.set_tab(False)
@@ -605,8 +660,8 @@ class Block:
                       ['unavailable', False, 0, 0]]
 
     def _make_number_style_porch(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
-        self.svg.set_innie([True,True])
+        self.svg.expand(self.dx + self.ex, self.ey)
+        self.svg.set_innie([True, True])
         self.svg.set_outie(True)
         self.svg.set_tab(False)
         self.svg.set_slot(False)
@@ -617,10 +672,10 @@ class Block:
                       ['number', False, self.svg.docks[0][0],
                                         self.svg.docks[0][1]],
                       ['number', False, self.svg.docks[1][0],
-                                        self.svg.docks[1][1]]] 
+                                        self.svg.docks[1][1]]]
 
     def _make_compare_style(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
         self._make_block_graphics(svg, self.svg.boolean_compare)
         self.docks = [['bool', True, self.svg.docks[0][0],
                                      self.svg.docks[0][1], '('],
@@ -631,7 +686,7 @@ class Block:
                       ['unavailable', False, 0, 0, ')']]
 
     def _make_boolean_style(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
         self._make_block_graphics(svg, self.svg.boolean_and_or)
         self.docks = [['bool', True, self.svg.docks[0][0],
                                      self.svg.docks[0][1]],
@@ -639,9 +694,9 @@ class Block:
                                       self.svg.docks[1][1]],
                       ['bool', False, self.svg.docks[2][0],
                                       self.svg.docks[2][1]]]
- 
+
     def _make_not_style(self, svg):
-        self.svg.expand(15+self.dx+self.ex, self.ey)
+        self.svg.expand(15 + self.dx + self.ex, self.ey)
         self._make_block_graphics(svg, self.svg.boolean_not)
         self.docks = [['bool', True, self.svg.docks[0][0],
                                      self.svg.docks[0][1]],
@@ -649,7 +704,7 @@ class Block:
                                       self.svg.docks[1][1]]]
 
     def _make_flow_style(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
         self.svg.set_slot(True)
         self.svg.set_tab(True)
         self._make_block_graphics(svg, self.svg.basic_flow)
@@ -661,7 +716,7 @@ class Block:
                                       self.svg.docks[2][1], ']']]
 
     def _make_flow_style_tail(self, svg):
-        self.svg.expand(10+self.dx+self.ex, self.ey)
+        self.svg.expand(10 + self.dx + self.ex, self.ey)
         self.svg.set_slot(True)
         self.svg.set_tab(False)
         self._make_block_graphics(svg, self.svg.basic_flow)
@@ -671,7 +726,7 @@ class Block:
                                       self.svg.docks[1][1]]]
 
     def _make_flow_style_1arg(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
+        self.svg.expand(self.dx + self.ex, self.ey)
         self.svg.set_slot(True)
         self.svg.set_tab(True)
         self.svg.set_innie([True])
@@ -686,7 +741,7 @@ class Block:
                                       self.svg.docks[3][1], ']']]
 
     def _make_flow_style_boolean(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
+        self.svg.expand(self.dx + self.ex, self.ey)
         self.svg.set_slot(True)
         self.svg.set_tab(True)
         self.svg.set_boolean(True)
@@ -701,7 +756,7 @@ class Block:
                                       self.svg.docks[3][1], ']']]
 
     def _make_flow_style_while(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
+        self.svg.expand(self.dx + self.ex, self.ey)
         self.svg.set_slot(True)
         self.svg.set_tab(True)
         self.svg.set_boolean(True)
@@ -716,7 +771,7 @@ class Block:
                                       self.svg.docks[3][1], ']']]
 
     def _make_flow_style_else(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
+        self.svg.expand(self.dx + self.ex, self.ey)
         self.svg.set_slot(True)
         self.svg.set_tab(True)
         self.svg.set_else(True)
@@ -733,9 +788,9 @@ class Block:
                       ['flow', False, self.svg.docks[4][0],
                                       self.svg.docks[4][1], ']']]
 
-    def _make_collapsible_style_top(self, svg, no_arm=False, label=True):
-        self.svg.expand(self.dx+self.ex, self.ey)
-        self.svg.set_no_arm(no_arm)
+    def _make_collapsible_style_top(self, svg, arm=True, label=True):
+        self.svg.expand(self.dx + self.ex, self.ey)
+        self.svg.set_arm(arm)
         self._make_block_graphics(svg, self.svg.sandwich_top, label)
         if label:
             self.docks = [['flow', True, self.svg.docks[0][0],
@@ -751,17 +806,19 @@ class Block:
                            self.svg.docks[1][1]]]
 
     def _make_collapsible_style_bottom(self, svg):
-        self.svg.expand(self.dx+self.ex, self.ey)
+        self.svg.expand(self.dx + self.ex, self.ey)
         self._make_block_graphics(svg, self.svg.sandwich_bottom)
-        self.docks = [['flow',True,self.svg.docks[0][0],self.svg.docks[0][1]],
-                      ['flow',False,self.svg.docks[1][0],self.svg.docks[1][1]]]
+        self.docks = [['flow', True, self.svg.docks[0][0],
+                       self.svg.docks[0][1]], ['flow', False,
+                       self.svg.docks[1][0], self.svg.docks[1][1]]]
 
     # Depreciated block styles
+
     def _make_portfolio_style_2x2(self, svg):
-        self.svg.expand(30+self.dx+self.ex, 10+self.ey)
+        self.svg.expand(30 + self.dx + self.ex, 10 + self.ey)
         self.svg.set_slot(True)
         self.svg.set_tab(True)
-        self.svg.set_innie([True, True, False, True])        
+        self.svg.set_innie([True, True, False, True])
         self._make_block_graphics(svg, self.svg.portfolio)
         self.docks = [['flow', True, self.svg.docks[0][0],
                                      self.svg.docks[0][1]],
@@ -779,10 +836,10 @@ class Block:
                                       self.svg.docks[3][1]]]
 
     def _make_portfolio_style_2x1(self, svg):
-        self.svg.expand(30+self.dx+self.ex, 10+self.ey)
+        self.svg.expand(30 + self.dx + self.ex, 10 + self.ey)
         self.svg.set_slot(True)
         self.svg.set_tab(True)
-        self.svg.set_innie([True, True])        
+        self.svg.set_innie([True, True])
         self._make_block_graphics(svg, self.svg.portfolio)
         self.docks = [['flow', True, self.svg.docks[0][0],
                                      self.svg.docks[0][1]],
@@ -796,7 +853,7 @@ class Block:
                                       self.svg.docks[2][1]]]
 
     def _make_portfolio_style_1x2(self, svg):
-        self.svg.expand(30+self.dx+self.ex, 15+self.ey)
+        self.svg.expand(30 + self.dx + self.ex, 15 + self.ey)
         self.svg.set_slot(True)
         self.svg.set_tab(True)
         self.svg.set_innie([True, True, False, True])
@@ -814,10 +871,10 @@ class Block:
                                       self.svg.docks[1][1]]]
 
     def _make_portfolio_style_1x1(self, svg):
-        self.svg.expand(30+self.dx+self.ex, 15+self.ey)
+        self.svg.expand(30 + self.dx + self.ex, 15 + self.ey)
         self.svg.set_slot(True)
         self.svg.set_tab(True)
-        self.svg.set_innie([True, True])  
+        self.svg.set_innie([True, True])
         self.svg.set_draw_innies(False)
         self._make_block_graphics(svg, self.svg.portfolio)
         self.docks = [['flow', True, self.svg.docks[0][0],
