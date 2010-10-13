@@ -169,11 +169,11 @@ msgstr ""
 
 #: ../TurtleArt/taconstants.py:306
 msgid "query keyboard"
-msgstr ""
+msgstr "проверить клавиатуру"
 
 #: ../TurtleArt/taconstants.py:307
 msgid "keyboard"
-msgstr ""
+msgstr "клавиатура"
 
 #: ../TurtleArt/taconstants.py:308 ../TurtleArt/taconstants.py:309
 msgid "left"
@@ -315,7 +315,7 @@ msgstr ""
 
 #: ../TurtleArt/taconstants.py:361
 msgid "turtle sees"
-msgstr ""
+msgstr "цвет под черепашкой"
 
 #: ../TurtleArt/taconstants.py:362
 msgid "set color"
@@ -387,7 +387,7 @@ msgstr "конец команды"
 
 #: ../TurtleArt/taconstants.py:383
 msgid "store in"
-msgstr ""
+msgstr "сохранить в ящике"
 
 #: ../TurtleArt/taconstants.py:383
 msgid "value"
