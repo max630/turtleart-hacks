@@ -62,7 +62,7 @@ from TurtleArt.taexportlogo import save_logo
 
 _HELP_MSG = 'turtleart.py: ' + _('usage is') + """
  \tturtleart.py 
- \tturtleart.py project.ta
+ \tturtleart.py [--edit] project.ta
  \tturtleart.py --output_png project.ta
  \tturtleart.py -o project"""
 
@@ -125,11 +125,12 @@ class TurtleMain():
         self.ta_file = None
         self.output_png = False
         self.uploading = False
+        self.edit = False
 
         # Parse command line
         try:
-            opts, args = getopt.getopt(argv[1:], 'ho',
-                                       ['help', 'output_png'])
+            opts, args = getopt.getopt(argv[1:], 'hoe',
+                                       ['help', 'output_png, edit'])
         except getopt.GetoptError, err:
             print str(err)
             print _HELP_MSG
@@ -140,6 +141,8 @@ class TurtleMain():
                 sys.exit()
             if o in ('-o', '--output_png'):
                 self.output_png = True
+            if o in ('-e', '--edit'):
+                self.edit = True
             else:
                 assert False, _('No option action:') + ' ' + o
         if args:
@@ -302,8 +305,9 @@ class TurtleMain():
             else:
                 print self.ta_file
                 self.tw.load_start(self.ta_file)
-                self.tw.lc.trace = 0
-                self.tw.run_button(0)
+                if not self.edit:
+                    self.tw.lc.trace = 0
+                    self.tw.run_button(0)
 
             gtk.main()
 
