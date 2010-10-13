@@ -1,3 +1,10 @@
+turtleart (100-1.max.1) UNRELEASED; urgency=low
+
+  * update upstream
+    . they nave their own solution for 'nicer dumps', used it
+
+ -- Max Kirillov <max@max630.net>  Wed, 13 Oct 2010 22:44:52 +0300
+
 turtleart (98-1.max.1) unstable; urgency=low
 
   * nicer dumps
